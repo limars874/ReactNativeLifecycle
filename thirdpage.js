@@ -13,14 +13,34 @@ import React, {
     TouchableOpacity,
 } from 'react-native';
 
-
-
+import Firstpage from './firstpage';
+import Secondpage from './secondpage';
 
 export default class Thirdpage extends Component {
 
     constructor(props){
         super(props);
         console.log('third init');
+    }
+
+    gotoFirst(){
+        const { navigator } = this.props;
+        if(navigator){
+            navigator.push({
+                name:'firstpage',
+                component:Firstpage,
+            })
+        }
+    }
+
+    gotoSecond(){
+        const { navigator } = this.props;
+        if(navigator){
+            navigator.push({
+                name:'secondpage',
+                component:Secondpage,
+            })
+        }
     }
 
     back(){
@@ -72,6 +92,12 @@ export default class Thirdpage extends Component {
                     <Text>back</Text>
                 </TouchableOpacity>
                 <Text style={styles.welcome}>thirdpage</Text>
+                <TouchableOpacity  style={styles.buttonstyle} onPress={()=>this.gotoSecond()}>
+                    <Text>goto Secondpage</Text>
+                </TouchableOpacity>
+                <TouchableOpacity  style={styles.buttonstyle} onPress={()=>this.gotoFirst()}>
+                    <Text>goto Firstpage</Text>
+                </TouchableOpacity>
 
 
             </View>

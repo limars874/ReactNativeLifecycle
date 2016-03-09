@@ -15,6 +15,7 @@ import React, {
 
 
 import Thirdpage from './thirdpage';
+import Firstpage from './firstpage';
 
 export default class Secondpage extends Component {
 
@@ -23,6 +24,15 @@ export default class Secondpage extends Component {
         console.log('second init');
     }
 
+    gotoFirst(){
+        const { navigator } = this.props;
+        if(navigator){
+            navigator.push({
+                name:'firstpage',
+                component:Firstpage,
+            })
+        }
+    }
 
     gotoThird(){
         const { navigator } = this.props;
@@ -85,6 +95,9 @@ export default class Secondpage extends Component {
                 <Text style={styles.welcome}>secondpage</Text>
                 <TouchableOpacity  style={styles.buttonstyle} onPress={()=>this.gotoThird()}>
                     <Text>goto Thirdpage</Text>
+                </TouchableOpacity>
+                <TouchableOpacity  style={styles.buttonstyle} onPress={()=>this.gotoFirst()}>
+                    <Text>goto Firstpage</Text>
                 </TouchableOpacity>
 
             </View>

@@ -31,6 +31,7 @@ export default class Firstpage extends Component {
             })
         }
     }
+
     gotoThird(){
         const { navigator } = this.props;
         if(navigator){
@@ -38,6 +39,13 @@ export default class Firstpage extends Component {
                 name:'thirdpage',
                 component:Thirdpage,
             })
+        }
+    }
+
+    back(){
+        const { navigator } = this.props;
+        if(navigator){
+            navigator.pop();
         }
     }
 
@@ -81,6 +89,9 @@ export default class Firstpage extends Component {
         console.log('first render is here');
         return (
             <View style={styles.container}>
+                <TouchableOpacity style={[styles.buttonstyle,{borderColor:'red'}]} onPress={()=>this.back()}>
+                    <Text>back</Text>
+                </TouchableOpacity>
                 <Text style={styles.center}>first page</Text>
                 <TouchableOpacity style={styles.buttonstyle} onPress={()=>this.gotoSecond()}>
                     <Text>goto Secondpage</Text>
