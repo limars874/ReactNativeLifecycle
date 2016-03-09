@@ -1,11 +1,16 @@
 通过RN的Navigator组件来测试组件的生命周期
 
-index是ios.index.js的生命周期log名称
-first是firstpage.js的生命周期log名称
-second是secondpage.js的生命周期log名称
-third是thirdpage.js的生命周期log名称
+index是ios.index.js的生命周期log名称；
+
+first是firstpage.js的生命周期log名称；
+
+second是secondpage.js的生命周期log名称；
+
+third是thirdpage.js的生命周期log名称；
 
 log日志如下：
+
+###开始启动
 
 ```
 	 index init
