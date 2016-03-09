@@ -59,7 +59,7 @@ class LifecycleTest extends Component {
     render() {
         const initName = 'firstpage';
         const initComponent = Firstpage;
-
+        console.log('index render is here');
         return (
             <Navigator
                 initialRoute={{name: initName, component: initComponent}}

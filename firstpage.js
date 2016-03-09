@@ -78,6 +78,7 @@ export default class Firstpage extends Component {
 
 
     render() {
+        console.log('first render is here');
         return (
             <View style={styles.container}>
                 <Text style={styles.center}>first page</Text>

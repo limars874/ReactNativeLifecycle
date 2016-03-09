@@ -76,6 +76,7 @@ export default class Secondpage extends Component {
     }
 
     render() {
+        console.log('second render is here');
         return (
             <View style={styles.container}>
                 <TouchableOpacity style={[styles.buttonstyle,{borderColor:'red'}]} onPress={()=>this.back()}>

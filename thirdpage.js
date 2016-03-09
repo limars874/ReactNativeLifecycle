@@ -65,6 +65,7 @@ export default class Thirdpage extends Component {
     }
 
     render() {
+        console.log('third render is here');
         return (
             <View style={styles.container}>
                 <TouchableOpacity style={[styles.buttonstyle,{borderColor:'red'}]} onPress={()=>this.back()}>
