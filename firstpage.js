@@ -20,6 +20,10 @@ export default class Firstpage extends Component {
     constructor(props){
         super(props);
         console.log('first init');
+        this.state = {
+           id:1,
+        };
+
     }
 
     gotoSecond(){
@@ -28,6 +32,9 @@ export default class Firstpage extends Component {
             navigator.push({
                 name:'secondpage',
                 component:Secondpage,
+                params:{
+                    info:'from firstpage',
+                }
             })
         }
     }
@@ -44,9 +51,7 @@ export default class Firstpage extends Component {
 
     back(){
         const { navigator } = this.props;
-        if(navigator){
             navigator.pop();
-        }
     }
 
     componentWillMount(){
@@ -84,7 +89,6 @@ export default class Firstpage extends Component {
     }
 
 
-
     render() {
         console.log('first render is here');
         return (
@@ -92,12 +96,16 @@ export default class Firstpage extends Component {
                 <TouchableOpacity style={[styles.buttonstyle,{borderColor:'red'}]} onPress={()=>this.back()}>
                     <Text>back</Text>
                 </TouchableOpacity>
-                <Text style={styles.center}>first page</Text>
+                <Text style={styles.center}>first page,the state is {this.state.id}</Text>
                 <TouchableOpacity style={styles.buttonstyle} onPress={()=>this.gotoSecond()}>
                     <Text>goto Secondpage</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.buttonstyle} onPress={()=>this.gotoThird()}>
                     <Text>goto Thirdpage</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={[styles.buttonstyle,{marginTop:50,backgroundColor:'dodgerblue '}]} onPress={()=>{this.setState({id:2})}}>
+                    <Text>changeState to 2</Text>
                 </TouchableOpacity>
 
             </View>

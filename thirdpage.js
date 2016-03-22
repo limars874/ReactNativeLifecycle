@@ -50,6 +50,41 @@ export default class Thirdpage extends Component {
         }
     }
 
+    backtotop(){
+        const { navigator } = this.props;
+        if(navigator){
+            navigator.popToTop();
+        }
+    }
+
+    backtoroute(){
+        const { navigator } = this.props;
+        if(navigator){
+            let sec = navigator.getCurrentRoutes();
+            navigator.popToRoute(sec[1]);
+        }
+    }
+
+    replaceprevto(){
+        const { navigator } = this.props;
+        if(navigator){
+            navigator.replacePreviousAndPop({
+                name:'firstpage',
+                component:Firstpage,
+            })
+        }
+    }
+
+    resetto(){
+        const { navigator } = this.props;
+        if(navigator){
+            navigator.resetTo({
+                name:'secondpage',
+                component:Secondpage,
+            })
+        }
+    }
+
     componentWillMount(){
         console.log('third componentWillMount is here');
 
@@ -91,6 +126,13 @@ export default class Thirdpage extends Component {
                 <TouchableOpacity style={[styles.buttonstyle,{borderColor:'red'}]} onPress={()=>this.back()}>
                     <Text>back</Text>
                 </TouchableOpacity>
+                <TouchableOpacity  style={styles.buttonstyle} onPress={()=>this.backtotop()}>
+                    <Text>back to top</Text>
+                </TouchableOpacity>
+                <TouchableOpacity  style={styles.buttonstyle} onPress={()=>this.backtoroute()}>
+                    <Text>back to second</Text>
+                </TouchableOpacity>
+
                 <Text style={styles.welcome}>thirdpage</Text>
                 <TouchableOpacity  style={styles.buttonstyle} onPress={()=>this.gotoSecond()}>
                     <Text>goto Secondpage</Text>
@@ -98,6 +140,18 @@ export default class Thirdpage extends Component {
                 <TouchableOpacity  style={styles.buttonstyle} onPress={()=>this.gotoFirst()}>
                     <Text>goto Firstpage</Text>
                 </TouchableOpacity>
+                <TouchableOpacity  style={styles.buttonstyle} onPress={()=>this.replaceprevto()}>
+                    <Text>replace preview to firstpage</Text>
+                </TouchableOpacity>
+                <TouchableOpacity  style={styles.buttonstyle} onPress={()=>this.resetto()}>
+                    <Text>reset to firstpage</Text>
+                </TouchableOpacity>
+
+
+                <TouchableOpacity  style={styles.buttonstyle} onPress={()=>console.log(this.props.navigator.getCurrentRoutes())}>
+                    <Text>show current route in console</Text>
+                </TouchableOpacity>
+
 
 
             </View>

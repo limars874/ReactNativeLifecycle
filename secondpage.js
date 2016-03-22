@@ -40,9 +40,33 @@ export default class Secondpage extends Component {
             navigator.push({
                 name:'thirdpage',
                 component:Thirdpage,
+                params:{
+                    info:'from secondpage',
+                }})
+        }
+    }
+
+    replaceto(){
+        const { navigator } = this.props;
+        if(navigator){
+            navigator.replace({
+                name:'thirdpage',
+                component:Thirdpage,
             })
         }
     }
+
+    replaceself(){
+        const { navigator } = this.props;
+        if(navigator){
+            navigator.replace({
+                name:'secondpage',
+                component:Secondpage,
+            })
+        }
+    }
+
+
 
     back(){
         const { navigator } = this.props;
@@ -98,6 +122,12 @@ export default class Secondpage extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity  style={styles.buttonstyle} onPress={()=>this.gotoFirst()}>
                     <Text>goto Firstpage</Text>
+                </TouchableOpacity>
+                <TouchableOpacity  style={styles.buttonstyle} onPress={()=>this.replaceto()}>
+                    <Text>replace to Thirdpage</Text>
+                </TouchableOpacity>
+                <TouchableOpacity  style={styles.buttonstyle} onPress={()=>this.replaceself()}>
+                    <Text>replace Self</Text>
                 </TouchableOpacity>
 
             </View>
